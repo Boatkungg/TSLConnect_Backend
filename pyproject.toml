@@ -1,0 +1,41 @@
+[project]
+name = "tslconnect-backend"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "B_K", email = "chayanongg2550@gmail.com" }
+]
+dependencies = [
+    "torch==2.3.1+cu121",
+    "torchvision==0.18.1+cu121",
+    "torchaudio==2.3.1+cu121",
+    "transformers>=4.42.4",
+    "fastapi>=0.111.1",
+    "mediapipe>=0.10.14",
+    "pandas>=2.2.2",
+    "aiofiles>=24.1.0",
+    "moviepy>=1.0.3",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"tslconnect-backend" = "tslconnect_backend:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[[tool.rye.sources]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu121"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tslconnect_backend"]
